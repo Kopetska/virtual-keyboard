@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-restricted-syntax */
 const array1 = [
   "`",
   "1",
@@ -117,7 +119,7 @@ const activeEffectOnKeyboardClick = function (event) {
   }
 };
 
-const printLettersFromScreen = function (event) {
+const printLettersFromScreen = function () {
   let markup = "";
 
   for (const value of children) {
@@ -152,7 +154,6 @@ const onCapsBtnClickScreen = function () {
     .join("")}</div>`;
 
   const keyboard = document.querySelector(".keyboard");
-  const children = [...keyboard.children];
 
   const deleteBtn = keyboard.children[13];
   deleteBtn.classList.add("delete-btn");
@@ -184,7 +185,6 @@ const onCapsBtnClickScreen = function () {
         .join("")}</div>`;
 
       const keyboard = document.querySelector(".keyboard");
-      const children = [...keyboard.children];
 
       const deleteBtn = keyboard.children[13];
       deleteBtn.classList.add("delete-btn");
@@ -219,7 +219,6 @@ const onCapsBtnClickKeyboard = function (event) {
       .join("")}</div>`;
 
     const keyboard = document.querySelector(".keyboard");
-    const children = [...keyboard.children];
 
     const deleteBtn = keyboard.children[13];
     deleteBtn.classList.add("delete-btn");
@@ -254,7 +253,6 @@ const onCapsBtnClickKeyboard = function (event) {
           .join("")}</div>`;
 
         const keyboard = document.querySelector(".keyboard");
-        const children = [...keyboard.children];
 
         const deleteBtn = keyboard.children[13];
         deleteBtn.classList.add("delete-btn");
