@@ -58,10 +58,10 @@ const array3 = [
 const array4 = ["Shift", "z", "x", "c", "v", "b", "n", "m", ",", "."];
 
 const array5 = [
-  "ArrowRight",
-  "ArrowDown",
-  "ArrowUp",
-  "ArrowLeft",
+  "Arrow<br>Right",
+  "Arrow<br>Down",
+  "Arrow<br>Up",
+  "Arrow<br>Left",
   "Alt",
   "Meta",
   " ",
@@ -98,6 +98,8 @@ gapBtn.classList.add("gap-btn");
 
 const capsBtn = keyboard.children[28];
 capsBtn.classList.add("caps-btn");
+
+const langBtn = keyboard.lastElementChild;
 
 const activeEffectOnScreenClick = function (event) {
   for (const value of children) {
@@ -288,6 +290,110 @@ keyboard.addEventListener("click", activeEffectOnScreenClick);
 window.addEventListener("keydown", activeEffectOnKeyboardClick);
 keyboard.addEventListener("click", printLettersFromScreen);
 window.addEventListener("keydown", printLettersFromKeyboard);
+langBtn.addEventListener("click", () => {
+  const arrayRus = [
+    ...array1,
+    "Tab",
+    "й",
+    "ц",
+    "у",
+    "к",
+    "е",
+    "н",
+    "г",
+    "ш",
+    "щ",
+    "з",
+    "[",
+    "]",
+    "\\",
+    "CapsLock",
+    "ф",
+    "ы",
+    "в",
+    "а",
+    "п",
+    "р",
+    "о",
+    "л",
+    "д",
+    ";",
+    "'",
+    "Enter",
+    "Shift",
+    "я",
+    "ч",
+    "с",
+    "м",
+    "і",
+    "т",
+    "ь",
+    ",",
+    ".",
+    ...array5,
+  ];
+
+  document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${arrayRus
+    .map((value) => `<button class="key-btn">${value}</button>`)
+    .join("")}</div>`;
+
+  const keyboard = document.querySelector(".keyboard");
+
+  const deleteBtn = keyboard.children[13];
+  deleteBtn.classList.add("delete-btn");
+
+  const tabBtn = keyboard.children[14];
+  tabBtn.classList.add("tab-btn");
+
+  const returnBtn = keyboard.children[40];
+  returnBtn.classList.add("return-btn");
+
+  const shiftBtn = keyboard.children[41];
+  shiftBtn.classList.add("shift-btn");
+
+  const gapBtn = keyboard.children[57];
+  gapBtn.classList.add("gap-btn");
+
+  const capsBtn = keyboard.children[28];
+  capsBtn.classList.add("caps-btn");
+
+  const langBtn = keyboard.lastElementChild;
+  langBtn.classList.add("active");
+
+  langBtn.addEventListener("click", () => {
+    langBtn.classList.remove("active");
+    document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${array
+      .map((value) => `<button class="key-btn">${value}</button>`)
+      .join("")}</div>`;
+
+    const keyboard = document.querySelector(".keyboard");
+
+    const deleteBtn = keyboard.children[13];
+    deleteBtn.classList.add("delete-btn");
+
+    const tabBtn = keyboard.children[14];
+    tabBtn.classList.add("tab-btn");
+
+    const returnBtn = keyboard.children[40];
+    returnBtn.classList.add("return-btn");
+
+    const shiftBtn = keyboard.children[41];
+    shiftBtn.classList.add("shift-btn");
+
+    const gapBtn = keyboard.children[57];
+    gapBtn.classList.add("gap-btn");
+
+    const capsBtn = keyboard.children[28];
+    capsBtn.classList.add("caps-btn");
+
+    // const langBtn = keyboard.lastElementChild;
+    // langBtn.classList.add("active");
+  });
+});
 
 /* capsBtn.addEventListener("click", onCapsBtnClickScreen);
 window.addEventListener("keydown", onCapsBtnClickKeyboard); */
