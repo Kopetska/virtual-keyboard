@@ -1,5 +1,4 @@
 /* eslint-disable operator-linebreak */
-/* eslint-disable max-len */
 /* eslint-disable indent */
 /* eslint-disable quotes */
 /* eslint-disable func-names */
@@ -65,7 +64,7 @@ const array5 = [
   "Alt",
   "Meta",
   " ",
-  "Control",
+  "Cont<br>rol",
   "Lang",
 ];
 
@@ -153,143 +152,11 @@ const printLettersFromKeyboard = function (event) {
   textInput.insertAdjacentHTML("afterbegin", markup);
 };
 
-/* const onCapsBtnClickScreen = function () {
-  document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
-<div class="text-input"></div>
-<div class="keyboard">${array
-    .map((value) => `<button class="key-btn">${value.toUpperCase()}</button>`)
-    .join("")}</div>`;
-
-  const keyboard = document.querySelector(".keyboard");
-
-  const deleteBtn = keyboard.children[13];
-  deleteBtn.classList.add("delete-btn");
-
-  const tabBtn = keyboard.children[14];
-  tabBtn.classList.add("tab-btn");
-
-  const returnBtn = keyboard.children[40];
-  returnBtn.classList.add("return-btn");
-
-  const shiftBtn = keyboard.children[41];
-  shiftBtn.classList.add("shift-btn");
-
-  const gapBtn = keyboard.children[57];
-  gapBtn.classList.add("gap-btn");
-
-  const capsBtn = keyboard.children[28];
-  capsBtn.classList.add("caps-btn");
-
-  capsBtn.classList.add("caps-btn-clicked");
-  capsBtn.classList.add("active");
-
-  if (capsBtn.classList.contains("caps-btn-clicked")) {
-    capsBtn.addEventListener("click", () => {
-      document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
-<div class="text-input"></div>
-<div class="keyboard">${array
-        .map((value) => `<button class="key-btn">${value}</button>`)
-        .join("")}</div>`;
-
-      const keyboard = document.querySelector(".keyboard");
-
-      const deleteBtn = keyboard.children[13];
-      deleteBtn.classList.add("delete-btn");
-
-      const tabBtn = keyboard.children[14];
-      tabBtn.classList.add("tab-btn");
-
-      const returnBtn = keyboard.children[40];
-      returnBtn.classList.add("return-btn");
-
-      const shiftBtn = keyboard.children[41];
-      shiftBtn.classList.add("shift-btn");
-
-      const gapBtn = keyboard.children[57];
-      gapBtn.classList.add("gap-btn");
-
-      const capsBtn = keyboard.children[28];
-      capsBtn.classList.add("caps-btn");
-
-      capsBtn.classList.remove("caps-btn-clicked");
-      capsBtn.classList.remove("active");
-    });
-  }
-};
-
-const onCapsBtnClickKeyboard = function (event) {
-  if (event.code === "CapsLock") {
-    document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
-<div class="text-input"></div>
-<div class="keyboard">${array
-      .map((value) => `<button class="key-btn">${value.toUpperCase()}</button>`)
-      .join("")}</div>`;
-
-    const keyboard = document.querySelector(".keyboard");
-
-    const deleteBtn = keyboard.children[13];
-    deleteBtn.classList.add("delete-btn");
-
-    const tabBtn = keyboard.children[14];
-    tabBtn.classList.add("tab-btn");
-
-    const returnBtn = keyboard.children[40];
-    returnBtn.classList.add("return-btn");
-
-    const shiftBtn = keyboard.children[41];
-    shiftBtn.classList.add("shift-btn");
-
-    const gapBtn = keyboard.children[57];
-    gapBtn.classList.add("gap-btn");
-
-    const capsBtn = keyboard.children[28];
-    capsBtn.classList.add("caps-btn");
-
-    capsBtn.classList.add("caps-btn-clicked");
-    capsBtn.classList.add("active");
-
-    if (
-      capsBtn.classList.contains("caps-btn-clicked") &&
-      event.code === "CapsLock"
-    ) {
-      window.addEventListener("keydown", () => {
-        document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
-<div class="text-input"></div>
-<div class="keyboard">${array
-          .map((value) => `<button class="key-btn">${value}</button>`)
-          .join("")}</div>`;
-
-        const keyboard = document.querySelector(".keyboard");
-
-        const deleteBtn = keyboard.children[13];
-        deleteBtn.classList.add("delete-btn");
-
-        const tabBtn = keyboard.children[14];
-        tabBtn.classList.add("tab-btn");
-
-        const returnBtn = keyboard.children[40];
-        returnBtn.classList.add("return-btn");
-
-        const shiftBtn = keyboard.children[41];
-        shiftBtn.classList.add("shift-btn");
-
-        const gapBtn = keyboard.children[57];
-        gapBtn.classList.add("gap-btn");
-
-        const capsBtn = keyboard.children[28];
-        capsBtn.classList.add("caps-btn");
-
-        capsBtn.classList.remove("caps-btn-clicked");
-        capsBtn.classList.remove("active");
-      });
-    }
-  }
-}; */
-
 keyboard.addEventListener("click", activeEffectOnScreenClick);
 window.addEventListener("keydown", activeEffectOnKeyboardClick);
 keyboard.addEventListener("click", printLettersFromScreen);
 window.addEventListener("keydown", printLettersFromKeyboard);
+
 langBtn.addEventListener("click", () => {
   const arrayRus = [
     ...array1,
@@ -389,11 +256,65 @@ langBtn.addEventListener("click", () => {
 
     const capsBtn = keyboard.children[28];
     capsBtn.classList.add("caps-btn");
-
-    // const langBtn = keyboard.lastElementChild;
-    // langBtn.classList.add("active");
   });
 });
 
-/* capsBtn.addEventListener("click", onCapsBtnClickScreen);
-window.addEventListener("keydown", onCapsBtnClickKeyboard); */
+capsBtn.addEventListener("click", () => {
+  document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${array
+    .map((value) => `<button class="key-btn">${value.toUpperCase()}</button>`)
+    .join("")}</div>`;
+
+  const keyboard = document.querySelector(".keyboard");
+
+  const deleteBtn = keyboard.children[13];
+  deleteBtn.classList.add("delete-btn");
+
+  const tabBtn = keyboard.children[14];
+  tabBtn.classList.add("tab-btn");
+
+  const returnBtn = keyboard.children[40];
+  returnBtn.classList.add("return-btn");
+
+  const shiftBtn = keyboard.children[41];
+  shiftBtn.classList.add("shift-btn");
+
+  const gapBtn = keyboard.children[57];
+  gapBtn.classList.add("gap-btn");
+
+  const capsBtn = keyboard.children[28];
+  capsBtn.classList.add("caps-btn");
+
+  capsBtn.classList.add("active");
+
+  capsBtn.addEventListener("click", () => {
+    document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${array
+      .map((value) => `<button class="key-btn">${value}</button>`)
+      .join("")}</div>`;
+
+    const keyboard = document.querySelector(".keyboard");
+
+    const deleteBtn = keyboard.children[13];
+    deleteBtn.classList.add("delete-btn");
+
+    const tabBtn = keyboard.children[14];
+    tabBtn.classList.add("tab-btn");
+
+    const returnBtn = keyboard.children[40];
+    returnBtn.classList.add("return-btn");
+
+    const shiftBtn = keyboard.children[41];
+    shiftBtn.classList.add("shift-btn");
+
+    const gapBtn = keyboard.children[57];
+    gapBtn.classList.add("gap-btn");
+
+    const capsBtn = keyboard.children[28];
+    capsBtn.classList.add("caps-btn");
+
+    capsBtn.classList.remove("active");
+  });
+});
