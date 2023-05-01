@@ -1,3 +1,8 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable max-len */
+/* eslint-disable indent */
+/* eslint-disable quotes */
+/* eslint-disable func-names */
 /* eslint-disable no-shadow */
 /* eslint-disable no-restricted-syntax */
 const array1 = [
@@ -146,7 +151,7 @@ const printLettersFromKeyboard = function (event) {
   textInput.insertAdjacentHTML("afterbegin", markup);
 };
 
-const onCapsBtnClickScreen = function () {
+/* const onCapsBtnClickScreen = function () {
   document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
 <div class="text-input"></div>
 <div class="keyboard">${array
@@ -277,12 +282,12 @@ const onCapsBtnClickKeyboard = function (event) {
       });
     }
   }
-};
+}; */
 
 keyboard.addEventListener("click", activeEffectOnScreenClick);
 window.addEventListener("keydown", activeEffectOnKeyboardClick);
 keyboard.addEventListener("click", printLettersFromScreen);
 window.addEventListener("keydown", printLettersFromKeyboard);
 
-capsBtn.addEventListener("click", onCapsBtnClickScreen);
-window.addEventListener("keydown", onCapsBtnClickKeyboard);
+/* capsBtn.addEventListener("click", onCapsBtnClickScreen);
+window.addEventListener("keydown", onCapsBtnClickKeyboard); */
