@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable operator-linebreak */
 /* eslint-disable indent */
 /* eslint-disable quotes */
@@ -132,13 +133,17 @@ const printLettersFromScreen = function () {
   for (const value of children) {
     if (
       value.classList.contains("active") &&
-      value.textContent !== "Backspace"
+      value.textContent !== "Backspace" &&
+      value.textContent !== "ArrowRight" &&
+      value.textContent !== "ArrowLeft" &&
+      value.textContent !== "ArrowUp" &&
+      value.textContent !== "ArrowDown"
     ) {
       markup = value.textContent;
     }
   }
 
-  textInput.insertAdjacentHTML("afterbegin", markup);
+  textInput.insertAdjacentHTML("beforeend", markup);
 };
 
 const printLettersFromKeyboard = function (event) {
@@ -153,7 +158,7 @@ const printLettersFromKeyboard = function (event) {
     }
   }
 
-  textInput.insertAdjacentHTML("afterbegin", markup);
+  textInput.insertAdjacentHTML("beforeend", markup);
 };
 
 keyboard.addEventListener("click", activeEffectOnScreenClick);
@@ -323,6 +328,72 @@ capsBtn.addEventListener("click", () => {
   });
 });
 
+window.addEventListener("keydown", (event) => {
+  if (event.key === "CapsLock") {
+    document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${array
+      .map((value) => `<button class="key-btn">${value.toUpperCase()}</button>`)
+      .join("")}</div>`;
+
+    const keyboard = document.querySelector(".keyboard");
+
+    const deleteBtn = keyboard.children[13];
+    deleteBtn.classList.add("delete-btn");
+
+    const tabBtn = keyboard.children[14];
+    tabBtn.classList.add("tab-btn");
+
+    const returnBtn = keyboard.children[40];
+    returnBtn.classList.add("return-btn");
+
+    const shiftBtn = keyboard.children[41];
+    shiftBtn.classList.add("shift-btn");
+
+    const gapBtn = keyboard.children[57];
+    gapBtn.classList.add("gap-btn");
+
+    const capsBtn = keyboard.children[28];
+    capsBtn.classList.add("caps-btn");
+
+    capsBtn.classList.add("active");
+  }
+
+  if (capsBtn.classList.contains("active")) {
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "CapsLock") {
+        document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
+<div class="text-input"></div>
+<div class="keyboard">${array
+          .map((value) => `<button class="key-btn">${value}</button>`)
+          .join("")}</div>`;
+
+        const keyboard = document.querySelector(".keyboard");
+
+        const deleteBtn = keyboard.children[13];
+        deleteBtn.classList.add("delete-btn");
+
+        const tabBtn = keyboard.children[14];
+        tabBtn.classList.add("tab-btn");
+
+        const returnBtn = keyboard.children[40];
+        returnBtn.classList.add("return-btn");
+
+        const shiftBtn = keyboard.children[41];
+        shiftBtn.classList.add("shift-btn");
+
+        const gapBtn = keyboard.children[57];
+        gapBtn.classList.add("gap-btn");
+
+        const capsBtn = keyboard.children[28];
+        capsBtn.classList.add("caps-btn");
+
+        capsBtn.classList.remove("active");
+      }
+    });
+  }
+});
+
 backsBtn.addEventListener("click", () => {
   const string = textInput.textContent;
   const arr = [];
@@ -344,5 +415,65 @@ window.addEventListener("keydown", (event) => {
     }
 
     textInput.textContent = arr.splice(1, arr.length - 1).join("");
+  }
+});
+
+const arrowRight = keyboard.children[51];
+
+arrowRight.addEventListener("click", () => {
+  textInput.insertAdjacentHTML(
+    "beforeend",
+    '<svg width="30"><use href="./sprite.svg#icon-arrow-right"></use></svg>'
+  );
+});
+
+const arrowDown = keyboard.children[52];
+
+arrowDown.addEventListener("click", () => {
+  textInput.insertAdjacentHTML(
+    "beforeend",
+    '<svg width="30"><use href="./sprite.svg#icon-arrow-down"></use></svg>'
+  );
+});
+
+const arrowUp = keyboard.children[53];
+
+arrowUp.addEventListener("click", () => {
+  textInput.insertAdjacentHTML(
+    "beforeend",
+    '<svg width="30"><use href="./sprite.svg#icon-arrow-up"></use></svg>'
+  );
+});
+
+const arrowLeft = keyboard.children[54];
+
+arrowLeft.addEventListener("click", () => {
+  textInput.insertAdjacentHTML(
+    "beforeend",
+    '<svg width="30"><use href="./sprite.svg#icon-arrow-left"></use></svg>'
+  );
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    textInput.insertAdjacentHTML(
+      "beforeend",
+      '<svg width="30"><use href="./sprite.svg#icon-arrow-right"></use></svg>'
+    );
+  } else if (event.key === "ArrowLeft") {
+    textInput.insertAdjacentHTML(
+      "beforeend",
+      '<svg width="30"><use href="./sprite.svg#icon-arrow-left"></use></svg>'
+    );
+  } else if (event.key === "ArrowDown") {
+    textInput.insertAdjacentHTML(
+      "beforeend",
+      '<svg width="30"><use href="./sprite.svg#icon-arrow-down"></use></svg>'
+    );
+  } else if (event.key === "ArrowUp") {
+    textInput.insertAdjacentHTML(
+      "beforeend",
+      '<svg width="30"><use href="./sprite.svg#icon-arrow-up"></use></svg>'
+    );
   }
 });
