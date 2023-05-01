@@ -79,6 +79,7 @@ document.body.innerHTML = `<h1 class="title">Virtual Keyboard</h1>
 const keyboard = document.querySelector(".keyboard");
 const textInput = document.querySelector(".text-input");
 const children = [...keyboard.children];
+const backsBtn = children[13];
 
 const deleteBtn = keyboard.children[13];
 deleteBtn.classList.add("delete-btn");
@@ -129,7 +130,10 @@ const printLettersFromScreen = function () {
   let markup = "";
 
   for (const value of children) {
-    if (value.classList.contains("active")) {
+    if (
+      value.classList.contains("active") &&
+      value.textContent !== "Backspace"
+    ) {
       markup = value.textContent;
     }
   }
@@ -317,4 +321,28 @@ capsBtn.addEventListener("click", () => {
 
     capsBtn.classList.remove("active");
   });
+});
+
+backsBtn.addEventListener("click", () => {
+  const string = textInput.textContent;
+  const arr = [];
+
+  for (const letter of string) {
+    arr.push(letter);
+  }
+
+  textInput.textContent = arr.splice(1, arr.length - 1).join("");
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Backspace") {
+    const string = textInput.textContent;
+    const arr = [];
+
+    for (const letter of string) {
+      arr.push(letter);
+    }
+
+    textInput.textContent = arr.splice(1, arr.length - 1).join("");
+  }
 });
