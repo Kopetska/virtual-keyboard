@@ -56,8 +56,8 @@
 
 .text-input {
 display: flex;
-justify-content: flex-start;
-align-items: flex-start;
+justify-content: center;
+align-items: center;
 
 width: 1060px;
 height: 200px;
